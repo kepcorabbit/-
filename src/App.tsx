@@ -339,7 +339,6 @@ function App() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2">
           <span className="font-serif text-2xl font-semibold text-foreground">Scálpit</span>
           <span>스칼프잇 두피·헤드스파 · 압구정로데오 | 광교 | 천안 | 동탄</span>
-          <span>채용 문의 [연락처 / 카카오톡 채널]</span>
         </div>
       </footer>
 

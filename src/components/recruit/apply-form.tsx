@@ -9,6 +9,7 @@ declare global {
 }
 
 const positionOptions = ['테라피스트', '매니저', '실장', '점장급']
+const employmentOptions = ['정규직', '프리랜서 / 아르바이트']
 const experienceOptions = ['신입', '6개월 미만', '6개월 – 1년', '1 – 3년', '3년 이상']
 const licenseOptions = ['미용사(일반)', '미용사(피부)', '두피 관련 민간자격', '없음']
 
@@ -30,6 +31,7 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
       name: form.get('name'),
       phone: form.get('phone'),
       position: form.get('position'),
+      employment: form.get('employment'),
       branch: form.get('branch'),
       experience: form.get('experience'),
       licenses: form.getAll('licenses'),
@@ -63,7 +65,7 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
         <CheckCircle2 className="h-14 w-14 text-accent" aria-hidden />
         <h3 className="text-2xl font-extrabold">지원이 완료됐어요!</h3>
         <p className="text-muted-foreground">
-          남겨주신 연락처로 곧 연락드릴게요.
+          남겨주신 연락처로 2일 내에 연락드릴게요.
           <br />
           스칼프잇에 관심 가져주셔서 진심으로 고마워요.
         </p>
@@ -137,6 +139,21 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
       </div>
 
       <fieldset className="flex flex-col gap-3">
+        <legend className="mb-2 text-sm font-bold">희망 근무 형태 *</legend>
+        <div className="flex flex-wrap gap-2">
+          {employmentOptions.map((o) => (
+            <label
+              key={o}
+              className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-soft"
+            >
+              <input type="radio" name="employment" value={o} required className="accent-[var(--accent)]" />
+              {o}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="flex flex-col gap-3">
         <legend className="mb-2 text-sm font-bold">보유 자격 (선택)</legend>
         <div className="flex flex-wrap gap-2">
           {licenseOptions.map((o) => (
@@ -165,7 +182,7 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
         <input type="checkbox" required className="mt-1 h-4 w-4 accent-[var(--accent)]" />
         <span>
           [필수] 채용 진행을 위한 개인정보(이름, 연락처, 경력) 수집·이용에 동의합니다. 수집된 정보는 채용 종료 후
-          [○개월] 뒤 파기됩니다.
+          1개월 뒤 파기됩니다.
         </span>
       </label>
 

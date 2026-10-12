@@ -9,7 +9,7 @@ npm run build    # dist/ 생성 → Vercel·Netlify 등에 배포
 ```
 
 ## 수정할 곳
-- 문구·조건·이미지: `src/content.ts` (`[대괄호]` 부분은 실제 조건으로 교체)
+- 문구·조건·이미지: `src/content.ts`
 - 매장 사진: `public/images/`에 넣고 `content.ts`의 `images` 경로 변경
 - 매장 영상: `public/videos/scalpit.mp4` → `heroVideoUrl`에 경로 입력
 - 지원서 수신: `.env.example`를 `.env`로 복사 후 `VITE_APPLY_ENDPOINT`에 웹훅 주소(Google Apps Script 등)

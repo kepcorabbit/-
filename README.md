@@ -1,4 +1,4 @@
-# 스칼프잇 관리사 채용 랜딩
+# 스칼프잇 채용 랜딩
 
 Meta 광고용 채용 랜딩 페이지 (Vite + React + TypeScript + Tailwind CSS 4 + shadcn 구조).
 

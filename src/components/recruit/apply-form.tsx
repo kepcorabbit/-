@@ -8,7 +8,8 @@ declare global {
   }
 }
 
-const experienceOptions = ['신입', '1년 미만', '1 – 3년', '3년 이상']
+const positionOptions = ['테라피스트', '매니저', '실장', '점장급']
+const experienceOptions = ['신입', '6개월 미만', '6개월 – 1년', '1 – 3년', '3년 이상']
 const licenseOptions = ['미용사(일반)', '미용사(피부)', '두피 관련 민간자격', '없음']
 
 const fieldClass =
@@ -28,6 +29,7 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
     const payload = {
       name: form.get('name'),
       phone: form.get('phone'),
+      position: form.get('position'),
       branch: form.get('branch'),
       experience: form.get('experience'),
       licenses: form.getAll('licenses'),
@@ -48,7 +50,7 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
       } else {
         console.log('지원서 (VITE_APPLY_ENDPOINT 미설정):', payload)
       }
-      window.fbq?.('track', 'Lead', { content_name: '스칼프잇 관리사 채용' })
+      window.fbq?.('track', 'Lead', { content_name: '스칼프잇 채용' })
       setStatus('done')
     } catch {
       setStatus('error')
@@ -107,6 +109,19 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
           </select>
         </label>
         <label className="flex flex-col gap-2">
+          <span className="text-sm font-bold">지원 직급 *</span>
+          <select name="position" required defaultValue="" className={fieldClass}>
+            <option value="" disabled>
+              직급을 선택해주세요
+            </option>
+            {positionOptions.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-2">
           <span className="text-sm font-bold">관련 경력 *</span>
           <select name="experience" required defaultValue="" className={fieldClass}>
             <option value="" disabled>
@@ -139,6 +154,11 @@ export function ApplyForm({ initialPhone = '' }: ApplyFormProps) {
       <label className="flex flex-col gap-2">
         <span className="text-sm font-bold">스칼프잇에 하고 싶은 한마디 (선택)</span>
         <textarea name="message" rows={3} placeholder="지원 동기나 궁금한 점을 편하게 적어주세요" className={fieldClass} />
+      </label>
+
+      <label className="flex items-start gap-3 text-sm font-semibold">
+        <input type="checkbox" required className="mt-1 h-4 w-4 accent-[var(--accent)]" />
+        <span>[필수] 주말 필수 근무 조건을 확인했습니다.</span>
       </label>
 
       <label className="flex items-start gap-3 text-sm text-muted-foreground">

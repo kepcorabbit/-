@@ -12,6 +12,7 @@ import {
   preferred,
   process,
   reasons,
+  salary,
   stats,
   wanted,
 } from '@/content'
@@ -50,7 +51,7 @@ function App() {
         loginLabel=""
         ctaLabel="지원하기"
         ctaHref="#apply"
-        heroSubtitle="2026 하반기 관리사 채용 · 청주까지 확장 중"
+        heroSubtitle="신입 월 240만원 + α · 4개 지점 채용 중"
         heroTitle={
           <>
             손님 걱정은 저희가 할게요.
@@ -246,6 +247,18 @@ function App() {
             <Eyebrow>POSITION</Eyebrow>
             <h2 className="text-3xl font-black leading-tight sm:text-5xl">모집 요강</h2>
           </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {salary.map((s, i) => (
+              <div key={s.label} className={`flex flex-col gap-1 rounded-3xl p-7 ${i === 1 ? 'bg-primary text-primary-foreground' : 'bg-card'}`}>
+                <span className="text-sm font-bold opacity-80">{s.label}</span>
+                <span className="flex items-baseline gap-1">
+                  <span className="text-sm font-bold">월</span>
+                  <span className="text-5xl font-black tabular-nums sm:text-6xl">{s.value}</span>
+                  <span className="text-xl font-extrabold">만원 + α</span>
+                </span>
+              </div>
+            ))}
+          </div>
           <dl className="divide-y divide-border overflow-hidden rounded-3xl bg-card">
             {conditions.map((c) => (
               <div key={c.label} className="flex flex-col gap-1 px-6 py-5 sm:flex-row sm:gap-8">
@@ -325,7 +338,7 @@ function App() {
       <footer className="border-t border-border px-4 py-10 text-sm text-muted-foreground sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-2">
           <span className="font-serif text-2xl font-semibold text-foreground">Scálpit</span>
-          <span>스칼프잇 두피·헤드스파 · 동탄 | 천안 | 광교 | 압구정로데오 | 청주(오픈 예정)</span>
+          <span>스칼프잇 두피·헤드스파 · 압구정로데오 | 광교 | 천안 | 동탄</span>
           <span>채용 문의 [연락처 / 카카오톡 채널]</span>
         </div>
       </footer>

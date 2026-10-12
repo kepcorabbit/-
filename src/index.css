@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* 스칼프잇 브랜드 톤 (세미나 랜딩과 동일 팔레트) */
+:root {
+  --radius: 1rem;
+  --background: #f8f3ec;
+  --foreground: #1a1414;
+  --card: #ffffff;
+  --card-foreground: #1a1414;
+  --muted: #efe5dc;
+  --muted-foreground: #5f5450;
+  --border: #e3d6cb;
+  --ring: #9e2a3a;
+  --primary: #7a1e2c;
+  --primary-foreground: #f4efe8;
+  --accent: #9e2a3a;
+  --accent-soft: #f6e7e2;
+}
+
+.dark {
+  --background: #0e0c0c;
+  --foreground: #f4efe8;
+  --card: #1a1515;
+  --card-foreground: #f4efe8;
+  --muted: #221c1c;
+  --muted-foreground: #b8afa6;
+  --border: #2e2626;
+  --ring: #c98a94;
+  --primary: #9e2a3a;
+  --primary-foreground: #f4efe8;
+  --accent: #e5546a;
+  --accent-soft: #2a1a1d;
+}
+
+@theme inline {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-brush: "Nanum Brush Script", cursive;
+  --font-serif: "Cormorant Garamond", serif;
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    word-break: keep-all;
+  }
+}

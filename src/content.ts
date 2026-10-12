@@ -1,15 +1,23 @@
 // 채용 랜딩에 들어가는 문구·이미지를 한곳에 모았습니다.
 // 조건이 바뀌면 이 파일만 수정하면 됩니다.
 
-// TODO: 실제 매장·팀 사진으로 교체 (public/images 에 넣고 '/images/파일명.jpg' 로 지정)
+// 실제 스칼프잇 사진 (public/images). 직원 얼굴은 블러 처리되어 있습니다.
 export const images = {
-  hero: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80',
-  training: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80',
-  care: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
+  hero: 'images/store-lobby.jpg',
+  trainingLive: 'images/training-live.jpg',
+  trainingClass: 'images/training-class.jpg',
+  director: 'images/director.jpg',
+  directorFirstShop: 'images/director-first-shop.jpg',
 }
 
-// 매장 영상(9:16 아닌 16:9 권장)을 public/videos/scalpit.mp4 로 넣고 경로를 적으면 재생 버튼이 생깁니다.
-export const heroVideoUrl = ''
+export const gallery = [
+  { src: 'images/store-care-room.jpg', caption: '프라이빗 관리룸' },
+  { src: 'images/store-lounge.jpg', caption: '라운지' },
+  { src: 'images/store-powder-room.jpg', caption: '파우더룸' },
+  { src: 'images/scalp-diagnosis.jpg', caption: '두피 진단 · 전후 비교' },
+  { src: 'images/team-care.jpg', caption: '실전 관리 교육' },
+]
+
 
 export const stats = [
   { value: '1위', label: '네이버 플레이스' },

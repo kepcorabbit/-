@@ -7,7 +7,7 @@ import {
   careerPath,
   conditions,
   faqs,
-  heroVideoUrl,
+  gallery,
   images,
   preferred,
   process,
@@ -67,8 +67,8 @@ function App() {
         submitLabel="간편 지원"
         onSubmit={handleQuickApply}
         backgroundImage={images.hero}
-        backgroundAlt="스칼프잇 매장 관리 공간"
-        videoUrl={heroVideoUrl}
+        backgroundAlt="스칼프잇 매장 로비"
+        videoUrl=""
       />
 
       {/* 2. STATS */}
@@ -140,8 +140,8 @@ function App() {
       <section className="px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
           <div className="grid grid-cols-2 gap-3">
-            <img src={images.training} alt="두피 관리 교육 장면" className="aspect-[3/4] w-full rounded-3xl object-cover" loading="lazy" />
-            <img src={images.care} alt="헤드스파 관리 장면" className="mt-10 aspect-[3/4] w-full rounded-3xl object-cover" loading="lazy" />
+            <img src={images.trainingLive} alt="대표원장 실전 헤드스파 교육 현장" className="aspect-[3/4] w-full rounded-3xl object-cover" loading="lazy" />
+            <img src={images.trainingClass} alt="직원 대상 아로마 제품 교육" className="mt-10 aspect-[3/4] w-full rounded-3xl object-cover" loading="lazy" />
           </div>
           <div className="flex flex-col gap-6">
             <Eyebrow>TRAINING</Eyebrow>
@@ -214,9 +214,39 @@ function App() {
         </div>
       </section>
 
+      {/* 6-2. GALLERY */}
+      <section aria-labelledby="gallery-title" className="px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8">
+          <div className="flex flex-col gap-4">
+            <Eyebrow>WORKPLACE</Eyebrow>
+            <h2 id="gallery-title" className="text-3xl font-black leading-tight sm:text-5xl">
+              매일 출근하고 싶은 곳,
+              <br />
+              <span className="text-accent">당신이 일할 공간이에요.</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            {gallery.map((g, i) => (
+              <figure key={g.src} className={`relative m-0 overflow-hidden rounded-2xl ${i === 0 ? 'col-span-2 row-span-2' : ''}`}>
+                <img src={g.src} alt={g.caption} loading="lazy" className="h-full min-h-40 w-full object-cover" />
+                <figcaption className="absolute bottom-2 left-2 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white">{g.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 7. DIRECTOR MESSAGE */}
       <section className="px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto flex max-w-3xl flex-col gap-6 rounded-3xl bg-accent-soft p-8 sm:p-12">
+        <div className="mx-auto flex max-w-5xl flex-col gap-8 rounded-3xl bg-accent-soft p-6 sm:p-12 lg:flex-row">
+          <div className="flex shrink-0 flex-row gap-3 lg:w-64 lg:flex-col">
+            <img src={images.director} alt="이채연 대표원장" className="aspect-square w-1/2 rounded-2xl object-cover object-top lg:w-full" />
+            <figure className="relative m-0 w-1/2 lg:w-full">
+              <img src={images.directorFirstShop} alt="1인샵 오픈 준비하던 날" loading="lazy" className="aspect-square w-full rounded-2xl object-cover" />
+              <figcaption className="absolute bottom-2 left-2 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white">그때, 1인샵 오픈 준비하던 날</figcaption>
+            </figure>
+          </div>
+          <div className="flex flex-col gap-6">
           <Eyebrow>FROM 채리언니</Eyebrow>
           <h2 className="text-2xl font-black leading-snug sm:text-4xl">
             "저도 작은 1인샵에서 시작했어요.
@@ -236,6 +266,7 @@ function App() {
           </div>
           <div className="text-base font-bold">
             스칼프잇 대표원장 <span className="font-brush text-3xl font-normal text-accent">이채연</span>
+          </div>
           </div>
         </div>
       </section>
